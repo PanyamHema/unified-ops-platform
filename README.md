@@ -1,39 +1,29 @@
-unified-ops-platform/
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── advanced/
-│   ├── ml_predict.py
-│   ├── zero_trust.py
-│   ├── vuln_scan_remediate.py
-│   ├── misp_integration.py
-│   └── soar_playbook.py
-├── configs/
-│   ├── branch1.cfg
-│   ├── branch2.cfg
-│   ├── firewall.cfg
-│   ├── router_hq.cfg
-│   └── suricata.yaml
-├── dashboards/
-│   ├── grafana_dashboard.json
-│   └── kibana_dashboard.json
-├── deploy/
-│   └── gns3_deploy.yml
-├── docker/
-│   ├── docker-compose.yml
-│   ├── elasticsearch.yml
-│   ├── kibana.yml
-│   ├── logstash.conf
-│   └── prometheus.yml
-├── honeypot/
-│   ├── cowrie.cfg
-│   └── docker-compose.yml
-├── scripts/
-│   ├── auto_block.py
-│   ├── chatops_alert.py
-│   ├── net_validate.py
-│   └── threat_enrich.py
-├── .gitignore
-├── LICENSE
-└── README.md
+# Unified Network & Security Operations Platform
+
+## Overview
+A proactive, intelligence-driven network and security operations hub combining:
+- GNS3 network topology (Cisco IOSv, pfSense, Suricata)
+- ELK stack (Elasticsearch, Logstash, Kibana)
+- Prometheus & Grafana monitoring
+- Automated response: auto-block, zero-trust, vulnerability scans
+- Threat intelligence ingestion (MISP) & SOAR orchestration (TheHive)
+- Cowrie honeypot lab with Filebeat shipping
+
+## Prerequisites
+- Docker & Docker Compose
+- Python 3.8+ (`pip install -r requirements.txt`)
+- GNS3 or Cisco device images
+- OpenVAS, MISP, TheHive instances (optional)
+
+## Installation
+```bash
+git clone https://github.com/YourUser/unified-ops-platform.git
+cd unified-ops-platform
+
+# Start monitoring stack
+docker-compose -f docker/docker-compose.yml up -d
+
+# Deploy network lab
+docker-compose -f deploy/gns3_deploy.yml up -d
+
 
