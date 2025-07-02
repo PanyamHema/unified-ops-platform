@@ -1,12 +1,39 @@
 unified-ops-platform/
-├── .github/              # CI configuration
-├── advanced/             # Cutting-edge automation scripts
-├── configs/              # Device and Suricata configurations
-├── dashboards/           # Exported Grafana & Kibana dashboards
-├── deploy/               # GNS3 lab deployment compose file
-├── docker/               # Monitoring stack (ELK, Prometheus, Grafana)
-├── honeypot/             # Cowrie honeypot + Filebeat setup
-├── scripts/              # Core response & validation scripts
-├── .gitignore            # Files/folders to skip in Git
-├── LICENSE               # MIT license text
-└── README.md             # Project overview & instructions
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── advanced/
+│   ├── ml_predict.py
+│   ├── zero_trust.py
+│   ├── vuln_scan_remediate.py
+│   ├── misp_integration.py
+│   └── soar_playbook.py
+├── configs/
+│   ├── branch1.cfg
+│   ├── branch2.cfg
+│   ├── firewall.cfg
+│   ├── router_hq.cfg
+│   └── suricata.yaml
+├── dashboards/
+│   ├── grafana_dashboard.json
+│   └── kibana_dashboard.json
+├── deploy/
+│   └── gns3_deploy.yml
+├── docker/
+│   ├── docker-compose.yml
+│   ├── elasticsearch.yml
+│   ├── kibana.yml
+│   ├── logstash.conf
+│   └── prometheus.yml
+├── honeypot/
+│   ├── cowrie.cfg
+│   └── docker-compose.yml
+├── scripts/
+│   ├── auto_block.py
+│   ├── chatops_alert.py
+│   ├── net_validate.py
+│   └── threat_enrich.py
+├── .gitignore
+├── LICENSE
+└── README.md
+
