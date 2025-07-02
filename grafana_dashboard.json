@@ -1,0 +1,4 @@
+{ /* Exported Grafana dashboard JSON:
+  Panels: CPU/RAM, Suricata alerts, ML anomalies, blocked IPs. 
+  Paste the full export here or link via GitHub raw. */
+}

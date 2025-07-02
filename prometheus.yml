@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s
+scrape_configs:
+  - job_name: 'cisco_routers'
+    static_configs:
+      - targets: ['router_hq:9116','branch1:9116','branch2:9116']
+  - job_name: 'pfsense'
+    metrics_path: /snmp
+    static_configs:
+      - targets: ['firewall:161']

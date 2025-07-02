@@ -1,0 +1,31 @@
+version: '2'
+services:
+  router_hq:
+    image: cisco/iosv
+    configs:
+      - source: router_hq.cfg
+        target: /ios/config.cfg
+  branch1:
+    image: cisco/iosv
+    configs:
+      - source: branch1.cfg
+        target: /ios/config.cfg
+  branch2:
+    image: cisco/iosv
+    configs:
+      - source: branch2.cfg
+        target: /ios/config.cfg
+  firewall:
+    image: pfsense/pfsense
+    configs:
+      - source: firewall.cfg
+        target: /cf/conf/config.xml
+  ids:
+    image: jasonish/suricata:latest
+    volumes:
+      - ../configs/suricata.yaml:/etc/suricata/suricata.yaml
+    command: suricata -c /etc/suricata/suricata.yaml --af-packet
+
+networks:
+  default:
+    driver: bridge

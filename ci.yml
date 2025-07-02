@@ -1,0 +1,23 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install netmiko elasticsearch joblib pymisp thehive4py yamllint flake8
+
+      - name: Lint Python code
+        run: flake8 scripts/ advanced/
+
+      - name: Validate YAML
+        run: yamllint deploy/ docker/ honeypot/

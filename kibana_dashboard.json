@@ -1,0 +1,4 @@
+{ /* Exported Kibana dashboard JSON:
+  Panels: Suricata events timeline, threat-intel hits, honeypot logs.
+  Paste the full export here or link via GitHub raw. */
+}
