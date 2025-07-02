@@ -1,0 +1,22 @@
+%YAML 1.1
+---
+vars:
+  address-groups:
+    HOME_NET: "[192.168.100.0/24, 10.0.0.0/16]"
+  port-groups:
+    HTTP_PORTS: "[80, 8080]"
+af-packet:
+  - interface: eth0
+    cluster-id: 99
+    cluster-type: cluster_flow
+    defrag: yes
+detect-engine:
+  profile: balanced
+rule-files:
+  - suricata.rules
+outputs:
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: eve.json
+      types: [alert, http, dns]
