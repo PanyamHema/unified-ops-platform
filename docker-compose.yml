@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  cowrie:
+    image: cowrie/cowrie
+    volumes:
+      - ./cowrie.cfg:/etc/cowrie/cowrie.cfg
+    ports:
+      - "2222:2222"
+      - "2223:2223"
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.5.0
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - /var/lib/docker/volumes/unified-ops-platform_honeypot_cowrie/_data/log:/cowrie/log
+    depends_on: [cowrie]
